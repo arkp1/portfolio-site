@@ -29,5 +29,11 @@ const Projects = [
     link: "",
     stack: ["Python", "Next.js", "tailwind CSS"]
 },
+{
+    name: "Project 6",
+    description: "Test description of project 6",
+    link: "",
+    stack: ["Python", "Next.js", "tailwind CSS"]
+},
 
 ]
