@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
     ];
 
     return (
-        <footer className="w-full py-4 mt-auto bg-neutral-900/50 backdrop-blur-sm border-t border-neutral-800">
+        <footer className="min-w-full py-4 mt-auto bg-neutral-900/50 backdrop-blur-sm border-t border-neutral-800">
             <div className="container mx-auto px-4">
                 <div className="flex justify-center items-center gap-6">
                     {socialLinks.map((link) => (
