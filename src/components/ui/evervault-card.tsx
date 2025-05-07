@@ -1,0 +1,107 @@
+"use client";
+import { useMotionValue, useMotionTemplate, motion } from "motion/react";
+import React, { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
+import { useTheme } from "../ThemeProvider";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { MdOutlineArrowOutward } from "react-icons/md";
+
+export const ProjectGrid = ({ projects }: { projects: any[] }) => {
+  return (
+    <>
+      <h1 className="text-4xl mt-5">Projects:</h1>
+
+      <div className="grid grid-cols-2 gap-6">
+        {projects.map((project, i) => (
+          <EvervaultCard key={i} project={project} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+export const EvervaultCard = ({
+  project,
+  className,
+}: {
+  project: any;
+  className?: string;
+}) => {
+  let mouseX = useMotionValue(0);
+  let mouseY = useMotionValue(0);
+  const [randomString, setRandomString] = useState("");
+  const { isDark } = useTheme();
+
+  useEffect(() => {
+    setRandomString(generateRandomString(1000));
+  }, []);
+
+  function onMouseMove({ currentTarget, clientX, clientY }: any) {
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+    setRandomString(generateRandomString(1000));
+  }
+
+  return (
+    <div
+      className={cn("p-0.5 bg-transparent w-full h-full relative", className)}
+    >
+      <a href={project.url} target="_blank" rel="noopener noreferrer">
+        <div
+          onMouseMove={onMouseMove}
+          className="group/card rounded-2xl w-full h-60 relative overflow-hidden bg-transparent flex items-center justify-center"
+        >
+          <CardPattern
+            mouseX={mouseX}
+            mouseY={mouseY}
+            randomString={randomString}
+          />
+
+          <MdOutlineArrowOutward className="absolute top-4 right-4 text-lg" />
+
+          <div className="relative z-10 text-center px-4">
+            <h2 className={`text-3xl font-bold`}>{project.name}</h2>
+            <p className="text-xl mt-1 line-clamp-3">{project.description}</p>
+            <p className="mt-2 font-extralight text-lg font-mono">
+              {project.stack.join(", ")}
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  );
+};
+
+export function CardPattern({ mouseX, mouseY, randomString }: any) {
+  let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  let style = { maskImage, WebkitMaskImage: maskImage };
+
+  return (
+    <div className="pointer-events-none">
+      <div className="absolute inset-0 rounded-2xl blur-lg [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"></div>
+      <motion.div
+        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500 to-blue-700 opacity-0 group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
+        style={style}
+      />
+      <motion.div
+        className="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay group-hover/card:opacity-100"
+        style={style}
+      >
+        <p className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold transition duration-500">
+          {randomString}
+        </p>
+      </motion.div>
+    </div>
+  );
+}
+
+const characters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+export const generateRandomString = (length: number) => {
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+};

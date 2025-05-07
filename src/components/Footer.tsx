@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
     ];
 
     return (
-        <footer className="min-w-full py-4 mt-auto bg-neutral-900/50 backdrop-blur-sm border-t border-neutral-800">
+        <footer className="min-w-full py-4 mt-auto bg-neutral-700 backdrop-blur-sm border-t border-neutral-800">
             <div className="container mx-auto px-4">
                 <div className="flex justify-center items-center gap-6">
                     {socialLinks.map((link) => (
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+                            className="opacity-80 hover:opacity-100 transition-colors duration-300"
                             aria-label={link.label}
                         >
                             <Image

@@ -1,9 +1,15 @@
-import { Geist, Geist_Mono, Overpass_Mono, Major_Mono_Display, Inter} from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Overpass_Mono,
+  Major_Mono_Display,
+  Inter,
+} from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/ThemeProvder";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +29,7 @@ const geistMono = Geist_Mono({
 export const majorMonoDisplay = Major_Mono_Display({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400"]
+  weight: ["400"],
 });
 
 const overpassMono = Overpass_Mono({
@@ -40,20 +46,20 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>)
+
+{
   return (
     <ThemeProvider>
-    <html lang="en">
-      <body
-        className={`${inter.className} antialiased min-h-screen`}
-      >
-        <Header />
-        <main className="flex flex-col p-2 md:p-4">
-        {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+      <html lang="en">
+        <body className={`${inter.className} antialiased min-h-screen`}>
+          <Header />
+          <main className="flex flex-col p-2 md:p-4">
+            {children}
+            </main>
+          <Footer />
+        </body>
+      </html>
     </ThemeProvider>
   );
 }
