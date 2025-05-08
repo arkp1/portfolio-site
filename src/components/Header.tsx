@@ -65,24 +65,14 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex w-full items-center justify-center text-lg md:text-lg lg:flex-row gap-6">
-          <Link href="/" className={getLinkClass("/")}>
-            Home
-          </Link>
-          <Link href="/projects" className={getLinkClass("/projects")}>
-            Projects
-          </Link>
-          <Link href="/about" className={getLinkClass("/about")}>
-            About
-          </Link>
-
+        <div className="flex w-full items-center justify-center text-lg md:text-lg lg:flex-row">
           <div className="flex items-center gap-2">
-            {activeUsers > 0 ? 
-            <span className="h-2 w-2 bg-green-600 rounded-full animate-pulse"></span> : 
-            <span className="h-2 w-2 bg-gray-600 rounded-full"></span>  }
-          <p className="">
-             {activeUsers} Online
-            </p>
+            {activeUsers > 0 ? (
+              <span className="h-2 w-2 bg-green-600 rounded-full animate-pulse"></span>
+            ) : (
+              <span className="h-2 w-2 bg-gray-600 rounded-full"></span>
+            )}
+            <p className="">{activeUsers} Online</p>
           </div>
 
           <div className="absolute right-4 hidden md:block">

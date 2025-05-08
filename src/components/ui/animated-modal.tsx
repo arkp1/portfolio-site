@@ -50,7 +50,7 @@ export const ModalTrigger = ({
   return (
     <button
       className={cn(
-        "px-4 py-1 rounded-md text-black dark:text-white text-center relative overflow-hidden",
+        "px-4 py-1 rounded-md shadow-2xl text-black dark:text-white text-center relative overflow-hidden",
         className
       )}
       onClick={() => setOpen(true)}

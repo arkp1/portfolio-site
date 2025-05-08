@@ -32,15 +32,11 @@ export const EvervaultCard = ({
   const [randomString, setRandomString] = useState("");
   const { isDark } = useTheme();
 
-  useEffect(() => {
-    setRandomString(generateRandomString(1000));
-  }, []);
 
   function onMouseMove({ currentTarget, clientX, clientY }: any) {
     let { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
-    setRandomString(generateRandomString(1000));
   }
 
   return (
@@ -50,7 +46,7 @@ export const EvervaultCard = ({
       <a href={project.url} target="_blank" rel="noopener noreferrer">
         <div
           onMouseMove={onMouseMove}
-          className="group/card rounded-2xl w-full h-60 relative overflow-hidden bg-transparent flex items-center justify-center"
+          className="group/card w-full h-60 relative overflow-hidden bg-transparent flex items-center justify-center"
         >
           <CardPattern
             mouseX={mouseX}
@@ -95,13 +91,3 @@ export function CardPattern({ mouseX, mouseY, randomString }: any) {
     </div>
   );
 }
-
-const characters =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-export const generateRandomString = (length: number) => {
-  let result = "";
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
-};

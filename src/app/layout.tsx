@@ -8,8 +8,9 @@ import {
 import "./globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { links } from "@/components/FloatingDock";
+import { FloatingDock } from "@/components/ui/floating-dock";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,18 +47,17 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>)
-
-{
+}>) {
   return (
     <ThemeProvider>
       <html lang="en">
         <body className={`${inter.className} antialiased min-h-screen`}>
           <Header />
-          <main className="flex flex-col p-2 md:p-4">
-            {children}
-            </main>
-          <Footer />
+          {/* <FloatingDock items={links}/> */}
+          <main className="flex flex-col p-2 md:p-4">{children}</main>
+               <div>
+          <FloatingDock items={links}/>
+        </div>
         </body>
       </html>
     </ThemeProvider>
