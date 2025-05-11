@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <main
-      className={`flex flex-col items-center justify-between p-4 ${
+      className={`flex flex-col items-center justify-between p-3 md:p-4 ${
         isDark ? "text-[#e5e5e5]" : "text-black"
       }`}
     >
@@ -68,9 +68,9 @@ export default function Header() {
             ) : (
               <span className="h-2 w-2 bg-gray-600 rounded-full"></span>
             )}
-            <p>{activeUsers} Online</p>
+            <p className="text-sm md:text-lg">{activeUsers} Online</p>
 
-            <button className="ml-4 cursor-pointer" onClick={toggleChat}>
+            <button className="ml-1 cursor-pointer" onClick={toggleChat}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -81,7 +81,7 @@ export default function Header() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-messages hover:opacity-60"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-messages h-6 w-6 hover:opacity-60"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
@@ -100,7 +100,7 @@ export default function Header() {
               </div>
             ) : (
               <div
-                className="absolute top-full right-0 mt-2 z-50 justify-center items-center hidden"
+                className="absolute top-full right-2 mt-2 z-50 justify-center items-center hidden"
                 style={{
                   width: "320px",
                 }}
@@ -112,7 +112,7 @@ export default function Header() {
 
           <div className="ml-auto absolute right-4">
             <p className="hidden md:block">{time.toLocaleTimeString()}</p>
-            <p className="block md:hidden">
+            <p className="block text-lg md:hidden">
               {time.toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
