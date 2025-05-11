@@ -50,7 +50,7 @@ export const ModalTrigger = ({
   return (
     <button
       className={cn(
-        "px-4 py-1 rounded-md shadow-2xl text-black dark:text-white text-center relative overflow-hidden",
+        "px-4 py-1 rounded-md shadow-2xl text-center relative overflow-hidden",
         className
       )}
       onClick={() => setOpen(true)}
@@ -96,7 +96,7 @@ export const ModalBody = ({
             opacity: 0,
             backdropFilter: "blur(0px)",
           }}
-          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full  flex items-center justify-center z-50"
+          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-50"
         >
           <Overlay />
 

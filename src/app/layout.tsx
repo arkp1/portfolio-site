@@ -1,10 +1,4 @@
-import {
-  Geist,
-  Geist_Mono,
-  Overpass_Mono,
-  Major_Mono_Display,
-  Inter,
-} from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
@@ -12,30 +6,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { links } from "@/components/FloatingDock";
 import { FloatingDock } from "@/components/ui/floating-dock";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const space_grotesk = Space_Grotesk({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const majorMonoDisplay = Major_Mono_Display({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const overpassMono = Overpass_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -51,13 +24,12 @@ export default function RootLayout({
   return (
     <ThemeProvider>
       <html lang="en">
-        <body className={`${inter.className} antialiased min-h-screen`}>
+        <body className={`${space_grotesk.className} antialiased min-h-screen`}>
           <Header />
-          {/* <FloatingDock items={links}/> */}
           <main className="flex flex-col p-2 md:p-4">{children}</main>
-               <div>
-          <FloatingDock items={links}/>
-        </div>
+          <div>
+            <FloatingDock items={links} />
+          </div>
         </body>
       </html>
     </ThemeProvider>

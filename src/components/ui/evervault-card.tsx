@@ -1,9 +1,8 @@
 "use client";
 import { useMotionValue, useMotionTemplate, motion } from "motion/react";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "../ThemeProvider";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { MdOutlineArrowOutward } from "react-icons/md";
 
 export const ProjectGrid = ({ projects }: { projects: any[] }) => {
@@ -11,7 +10,7 @@ export const ProjectGrid = ({ projects }: { projects: any[] }) => {
     <>
       <h1 className="text-4xl mt-5">Projects:</h1>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, i) => (
           <EvervaultCard key={i} project={project} />
         ))}
@@ -31,7 +30,6 @@ export const EvervaultCard = ({
   let mouseY = useMotionValue(0);
   const [randomString, setRandomString] = useState("");
   const { isDark } = useTheme();
-
 
   function onMouseMove({ currentTarget, clientX, clientY }: any) {
     let { left, top } = currentTarget.getBoundingClientRect();
@@ -57,11 +55,23 @@ export const EvervaultCard = ({
           <MdOutlineArrowOutward className="absolute top-4 right-4 text-lg" />
 
           <div className="relative z-10 text-center px-4">
-            <h2 className={`text-3xl font-bold`}>{project.name}</h2>
-            <p className="text-xl mt-1 line-clamp-3">{project.description}</p>
-            <p className="mt-2 font-extralight text-lg font-mono">
-              {project.stack.join(", ")}
+            <h2 className={`md:text-3xl font-bold`}>{project.name}</h2>
+            <p className="text-lg md:text-xl mt-1 line-clamp-3">
+              {project.description}
             </p>
+
+            <div className="flex flex-row flex-wrap mt-2 justify-center items-center gap-2">
+              {project.stack.map((tech: any, index: any) => {
+                return (
+                  <span
+                    key={index}
+                    className={`font-extralight text-sm ${isDark ? "text-zinc-900" : "text-[#e5e5e5]"} px-2 py-2 ${isDark ? "bg-[#e5e5e5]" : "bg-zinc-700" } rounded-full`}
+                  >
+                    {tech}
+                  </span>
+                );
+              })}
+            </div>
           </div>
         </div>
       </a>

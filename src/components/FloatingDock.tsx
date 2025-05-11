@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { FloatingDock } from "@/components/ui/floating-dock";
 
 export const links = [
-   {
+  {
     title: "GitHub",
     icon: (
       <svg
@@ -17,13 +17,13 @@ export const links = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"
+        className="icon icon-tabler icons-tabler-outline icon-tabler-brand-github text-white"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
       </svg>
     ),
-    href: "https://github.com/arkp1?tab=repositories&type=source",
+    href: "https://github.com/arkp1",
   },
   {
     title: "Resume",
@@ -38,7 +38,7 @@ export const links = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="icon icon-tabler icons-tabler-outline icon-tabler-file-cv"
+        className="icon icon-tabler icons-tabler-outline icon-tabler-file-cv text-white"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M14 3v4a1 1 0 0 0 1 1h4" />
@@ -49,7 +49,7 @@ export const links = [
     ),
     href: "https://drive.google.com/file/d/1ykhNxCMEanDWkaqoSj3-LYaObDudubqP/view?usp=sharing",
   },
-   {
+  {
     title: "LinkedIn",
     icon: (
       <svg
@@ -62,7 +62,7 @@ export const links = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"
+        className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin text-white"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M8 11v5" />
@@ -74,7 +74,6 @@ export const links = [
     ),
     href: "https://www.linkedin.com/in/a-r-k-praneet-1ba4592b8/",
   },
-
 ];
 
 export function FloatingDockDemo() {
@@ -83,7 +82,6 @@ export function FloatingDockDemo() {
       className={cn(
         "h-[40rem] w-full rounded-lg border border-dashed bg-neutral-100/50 dark:bg-neutral-900/40"
       )}
-      
     >
       <FloatingDock items={links} mobileClassName="bottom-10" />
     </div>

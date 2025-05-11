@@ -30,7 +30,7 @@ export const BackgroundBeams = React.memo(
     return (
       <div
         className={cn(
-          "absolute inset-0 flex h-full w-full items-start justify-center opacity-40",
+          "absolute inset-0 flex h-full w-full items-start justify-center opacity-50",
           className
         )}
       >
@@ -59,7 +59,6 @@ export const BackgroundBeams = React.memo(
 
           {Array.from({ length: NUM_PATHS }).map((_, i) => {
             const path = generatePath(i);
-            const useGradient = i % 5 === 0;
             const stroke =
               i % 5 === 0
                 ? "url(#grad1)"
@@ -75,11 +74,11 @@ export const BackgroundBeams = React.memo(
               d={path}
               stroke={stroke}
               strokeWidth="1.5"
-              strokeOpacity="0.75"
-              initial={{ pathLength: 0, opacity: 0.2 }}
-              animate={{ pathLength: 1, opacity: 0.5 }}
+              strokeOpacity="1"
+              initial={{ pathLength: 0.75, opacity: 0.2 }}
+              animate={{ pathLength: 0, opacity: 1.5 }}
               transition={{
-                duration: 6,
+                duration: 5,
                 delay: i * 0.2,
                 repeat: Infinity,
                 repeatType: "loop",

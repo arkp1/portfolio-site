@@ -1,17 +1,18 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTheme } from "./ThemeProvider";
 import { Switch } from "@radix-ui/react-switch";
 import { CiDark, CiLight } from "react-icons/ci";
-import { CgDarkMode } from "react-icons/cg";
+import Chat from "./Chat";
 
 export default function Header() {
-  const linkClass = "flex items-center gap-2 transition-colors";
-  const pathname = usePathname();
   const { isDark, toggleDarkMode } = useTheme();
   const [activeUsers, setActiveUsers] = useState(0);
+  const [chatOpen, setChatOpen] = useState(false);
+
+  const toggleChat = () => {
+    setChatOpen(!chatOpen);
+  };
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:8081/ws");
@@ -29,19 +30,14 @@ export default function Header() {
     return () => clearInterval(timer);
   }, []);
 
-  const getLinkClass = (path: string) => {
-    return pathname === path
-      ? `${linkClass} text-blue-500 font-bold`
-      : `${linkClass} hover:text-blue-500`;
-  };
   return (
     <main
       className={`flex flex-col items-center justify-between p-4 ${
         isDark ? "text-[#e5e5e5]" : "text-black"
       }`}
     >
-      <header className="flex w-full flex-col items-center justify-center lg:flex-row">
-        <div className="relative inline-flex items-center">
+      <header className="flex w-full flex-row items-center justify-center lg:flex-row relative">
+        <div className="relative inline-flex items-center mr-auto">
           <Switch
             checked={isDark}
             onCheckedChange={toggleDarkMode}
@@ -65,18 +61,58 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex w-full items-center justify-center text-lg md:text-lg lg:flex-row">
-          <div className="flex items-center gap-2">
+        <div className="flex w-full items-center justify-center text-lg relative">
+          <div className="flex items-center gap-2 relative">
             {activeUsers > 0 ? (
               <span className="h-2 w-2 bg-green-600 rounded-full animate-pulse"></span>
             ) : (
               <span className="h-2 w-2 bg-gray-600 rounded-full"></span>
             )}
-            <p className="">{activeUsers} Online</p>
+            <p>{activeUsers} Online</p>
+
+            <button
+              className="ml-4 cursor-pointer"
+              onClick={toggleChat}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-messages hover:opacity-60"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
+                <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
+              </svg>
+            </button>
+
+            {chatOpen && (
+              <div
+                className="absolute top-full right-0 mt-2 z-50 flex justify-center items-center"
+                style={{
+                  width: "320px",
+                }}
+              >
+                <Chat />
+              </div>
+            )}
           </div>
 
-          <div className="absolute right-4 hidden md:block">
-            <p className="">{time.toLocaleTimeString()}</p>
+          <div className="ml-auto absolute right-4">
+            <p className="hidden md:block">{time.toLocaleTimeString()}</p>
+            <p className="block md:hidden">
+              {time.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+              })}
+            </p>
           </div>
         </div>
       </header>
