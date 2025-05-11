@@ -12,7 +12,15 @@ interface Message {
 
 function Chat() {
   const ws = useRef<WebSocket | null>(null);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const saved = sessionStorage.getItem("messages");
+    return saved
+      ? JSON.parse(saved).map((msg: any) => ({
+          ...msg,
+          timestamp: new Date(msg.timestamp),
+        }))
+      : [];
+  });
   const [inputText, setInputText] = useState("");
   const clientId = useRef<string>(Math.random().toString(36).substring(2, 9));
   const userName = useRef<string>(generateName());
@@ -47,6 +55,7 @@ function Chat() {
         setMessages((prev) => [...prev, newMessage]);
       }
     };
+
     ws.current.onerror = (err) => {
       console.error("WebSocket error:", err);
     };
@@ -59,6 +68,10 @@ function Chat() {
       ws.current?.close();
     };
   }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("messages", JSON.stringify(messages));
+  }, [messages]);
 
   //sending
   const handleSend = () => {
@@ -91,7 +104,10 @@ function Chat() {
     }
   };
   return (
-    <div className="absolute top-full right-0 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50">
+    <div 
+    className="absolute top-full right-0 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto"
+    onWheel={(e) => e.stopPropagation()}
+    >
       <div className="flex items-center justify-center p-3 border-b border-neutral-800 flex-shrink-0">
         <h3 className="text-sm font-medium text-white">Chat</h3>
       </div>

@@ -70,10 +70,7 @@ export default function Header() {
             )}
             <p>{activeUsers} Online</p>
 
-            <button
-              className="ml-4 cursor-pointer"
-              onClick={toggleChat}
-            >
+            <button className="ml-4 cursor-pointer" onClick={toggleChat}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -92,9 +89,18 @@ export default function Header() {
               </svg>
             </button>
 
-            {chatOpen && (
+            {chatOpen ? (
               <div
-                className="absolute top-full right-0 mt-2 z-50 flex justify-center items-center"
+                className="absolute top-full right-0 mt-2 z-50 flex justify-center items-center visible"
+                style={{
+                  width: "320px",
+                }}
+              >
+                <Chat />
+              </div>
+            ) : (
+              <div
+                className="absolute top-full right-0 mt-2 z-50 justify-center items-center hidden"
                 style={{
                   width: "320px",
                 }}
