@@ -62,7 +62,7 @@ export default function Header() {
         </div>
 
         <div className="flex w-full items-center justify-center text-lg relative">
-          <div className="flex items-center gap-2 relative">
+          <div className="flex items-center gap-1 md:gap-2 relative">
             {activeUsers > 0 ? (
               <span className="h-2 w-2 bg-green-600 rounded-full animate-pulse"></span>
             ) : (

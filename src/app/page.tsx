@@ -30,7 +30,6 @@ export default function page() {
   return (
     <>
       <BackgroundBeams className="pointer-events-none" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <main className="flex flex-col items-center justify-center">
         <ScrollHandler />
         <TextGenerateEffect

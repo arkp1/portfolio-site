@@ -58,11 +58,11 @@ export default function ContactForm() {
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
-        <Input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Your@mail.com" required />
+        <Input name="email" type="email" placeholder="Your@mail.com" value={form.email} onChange={handleChange} required />
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
-        <Textarea name="message" value={form.message} onChange={handleChange} placeholder="Type you message" required />
+        <Textarea name="message" placeholder="Type you message" value={form.message} onChange={handleChange} required />
       </div>
       <Button type="submit" disabled={loading} className={`w-full shadow-lg cursor-pointer ${isDark ? "bg-[#e5e5e5] text-black" : "bg-zinc-900 text-white"} hover:opacity-80 transition duration-300`}>
         {loading ? "Sending..." : "Send"}

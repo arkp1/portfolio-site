@@ -70,7 +70,7 @@ function Chat() {
   }, []);
 
   useEffect(() => {
-    sessionStorage.setItem("messages", JSON.stringify(messages));
+    const saveMsg = sessionStorage.setItem("messages", JSON.stringify(messages));
   }, [messages]);
 
   //sending

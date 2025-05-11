@@ -13,6 +13,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import { useTheme } from "../ThemeProvider";
 
 import { useRef, useState } from "react";
 
@@ -75,7 +76,9 @@ export const FloatingDockMobile = ({
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900"
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
+                  <div className="flex justify-center items-center h-6 w-6">
+                    {item.icon}
+                  </div>
                 </a>
               </motion.div>
             ))}
@@ -184,6 +187,7 @@ function IconContainer({
   });
 
   const [hovered, setHovered] = useState(false);
+  const { isDark } = useTheme();
 
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
