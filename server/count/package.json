@@ -1,0 +1,11 @@
+{
+  "name": "chat-server",
+  "main": "wsServer.js",
+  "type": "module",
+  "scripts": {
+    "start": "node wsServer.js"
+  },
+  "dependencies": {
+    "ws": "^8.0.0"
+  }
+}

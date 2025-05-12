@@ -70,7 +70,10 @@ function Chat() {
   }, []);
 
   useEffect(() => {
-    const saveMsg = sessionStorage.setItem("messages", JSON.stringify(messages));
+    const saveMsg = sessionStorage.setItem(
+      "messages",
+      JSON.stringify(messages)
+    );
   }, [messages]);
 
   //sending
@@ -104,9 +107,9 @@ function Chat() {
     }
   };
   return (
-    <div 
-    className="absolute top-full right-0 left-26 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto"
-    onWheel={(e) => e.stopPropagation()}
+    <div
+      className="absolute top-full right-0 left-26 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto"
+      onWheel={(e) => e.stopPropagation()}
     >
       <div className="flex items-center justify-center p-3 border-b border-neutral-800 flex-shrink-0">
         <h3 className="text-sm font-medium text-white">Chat</h3>
@@ -146,7 +149,7 @@ function Chat() {
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
             placeholder="Type a message..."
             className="flex-1 bg-neutral-800 text-neutral-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
           />

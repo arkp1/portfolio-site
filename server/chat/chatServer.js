@@ -1,11 +1,11 @@
 import { WebSocketServer } from "ws";
 
 const wss = new WebSocketServer({ port: 8083 });
-const clients = new Set(); 
+const clients = new Set();
 
 wss.on("connection", (ws) => {
   console.log("New client connected");
-  clients.add(ws); 
+  clients.add(ws);
 
   ws.on("message", (message) => {
     try {
