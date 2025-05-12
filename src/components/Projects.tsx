@@ -18,7 +18,7 @@ export default function Projects() {
               <p className="text-lg text-center md:text-lg max-w-[30ch]">
                 {project.description}
               </p>
-              <a href={project.link} className="text-blue-500 hover:underline">
+              <a href={project.url} className="text-blue-500 hover:underline">
                 View Project
               </a>
               <div className="flex flex-wrap justify-center gap-2 mt-2">
