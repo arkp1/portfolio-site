@@ -27,7 +27,7 @@ function Chat() {
 
   //receiving
   useEffect(() => {
-    ws.current = new WebSocket("ws://localhost:8083");
+    ws.current = new WebSocket(process.env.CHAT_NEXT_PUBLIC_WEBSOCKET_URL as string);
 
     ws.current.onopen = () => {
       ws.current?.send(
