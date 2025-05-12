@@ -13,7 +13,7 @@ import ScrollHandler from "@/components/ScrollHandler";
 import ContactForm from "@/components/ContactForm";
 import { Toaster } from "@/components/ui/sonner";
 
-export default function page() {
+export default function Page() {
   const { isDark } = useTheme();
 
   useEffect(() => {

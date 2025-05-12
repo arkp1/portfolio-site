@@ -15,7 +15,7 @@ function Chat() {
   const [messages, setMessages] = useState<Message[]>(() => {
     const saved = sessionStorage.getItem("messages");
     return saved
-      ? JSON.parse(saved).map((msg: any) => ({
+      ? JSON.parse(saved).map((msg: Message) => ({
           ...msg,
           timestamp: new Date(msg.timestamp),
         }))
@@ -49,7 +49,7 @@ function Chat() {
         sender: isOwnMessage ? "user" : "other",
         senderName: msg.senderName,
         timestamp: new Date(),
-      };
+      }
 
       if (!isOwnMessage) {
         setMessages((prev) => [...prev, newMessage]);
