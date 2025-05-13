@@ -99,7 +99,7 @@ function Chat() {
 
   return (
     <div
-      className="absolute top-full right-0 left-26 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto"
+      className="absolute top-full right-0 left-20 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto"
       onWheel={(e) => e.stopPropagation()}
     >
       <div className="flex items-center justify-center p-3 border-b border-neutral-800 flex-shrink-0">
