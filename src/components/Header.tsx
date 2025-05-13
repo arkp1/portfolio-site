@@ -15,7 +15,7 @@ export default function Header() {
   };
 
   useEffect(() => {
-    const ws = new WebSocket(process.env.WS_NEXT_PUBLIC_WEBSOCKET_URL as string);
+    const ws = new WebSocket(process.env.NEXT_PUBLIC_WS_WEBSOCKET_URL as string);
     ws.onmessage = (event: MessageEvent) => {
       const count = parseInt(event.data);
       setActiveUsers(count);

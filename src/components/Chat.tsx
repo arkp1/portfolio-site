@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Send } from "lucide-react";
 var generateName = require("sillyname");
@@ -13,6 +14,7 @@ interface Message {
 function Chat() {
   const ws = useRef<WebSocket | null>(null);
   const [messages, setMessages] = useState<Message[]>(() => {
+    if (typeof window !== "undefined") {
     const saved = sessionStorage.getItem("messages");
     return saved
       ? JSON.parse(saved).map((msg: Message) => ({
@@ -20,15 +22,14 @@ function Chat() {
           timestamp: new Date(msg.timestamp),
         }))
       : [];
-  });
+}});
   const [inputText, setInputText] = useState("");
   const clientId = useRef<string>(Math.random().toString(36).substring(2, 9));
   const userName = useRef<string>(generateName());
 
   //receiving
   useEffect(() => {
-    ws.current = new WebSocket(process.env.CHAT_NEXT_PUBLIC_WEBSOCKET_URL as string);
-
+    ws.current = new WebSocket(process.env.NEXT_PUBLIC_CHAT_WEBSOCKET_URL as string);
     ws.current.onopen = () => {
       ws.current?.send(
         JSON.stringify({
@@ -116,7 +117,7 @@ function Chat() {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages.map((message) => (
+        {messages && messages.map((message: Message) => (
           <div
             key={message.id}
             className={`flex ${

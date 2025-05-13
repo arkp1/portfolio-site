@@ -1,10 +1,16 @@
-const MyProjects = [
+type Project = {
+  name: string,
+  description: string,
+  url: string
+  stack: string[]
+}
+
+const MyProjects: Project[] = [
     {
     name: "Image Compressor",
     description: "A sleek image compressor with custom quality input.",
     url: "https://compressit-puce.vercel.app/",
     stack: ["Typescript", "Python", "Next.js", "Tailwind CSS"],
-    image: "image.png"
 },
 {
     name: "Movie Time",
