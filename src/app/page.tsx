@@ -9,7 +9,6 @@ import { ProjectGrid } from "@/components/ui/evervault-card";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Modal, ModalTrigger } from "@/components/ui/animated-modal";
 import { motion } from "framer-motion";
-// import ScrollHandler from "@/components/ScrollHandler";
 import ContactForm from "@/components/ContactForm";
 import { Toaster } from "@/components/ui/sonner";
 

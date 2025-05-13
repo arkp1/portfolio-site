@@ -1,6 +1,6 @@
 "use client";
 import { useMotionValue, useMotionTemplate, motion } from "motion/react";
-import React, { useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "../ThemeProvider";
 import { MdOutlineArrowOutward } from "react-icons/md";
