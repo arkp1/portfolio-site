@@ -21,7 +21,7 @@ export const WebSocketProvider = ({ children }: { children: ReactNode }) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const socket = new WebSocket("wss://portfolio-site-ws-server.onrender.com");
+    const socket = new WebSocket(process.env.NEXT_PUBLIC_WS_URL as string);
 
     socket.onopen = () => {
       console.log("WebSocket connected");
