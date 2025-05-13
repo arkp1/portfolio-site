@@ -1,7 +1,8 @@
 import { WebSocketServer } from "ws";
 
-const port = process.env.NEXT_PUBLIC_CHAT_WEBSOCKET_SERVER_PORT
-const wss = new WebSocketServer({ port: Number(port) });
+const port = Number(process.env.NEXT_PUBLIC_CHAT_WEBSOCKET_SERVER_PORT || 8083)
+const wss = new WebSocketServer({ port });
+console.log(Number(port))
 const clients = new Set();
 
 wss.on("connection", (ws) => {
