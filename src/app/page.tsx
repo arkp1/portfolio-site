@@ -9,7 +9,7 @@ import { ProjectGrid } from "@/components/ui/evervault-card";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Modal, ModalTrigger } from "@/components/ui/animated-modal";
 import { motion } from "framer-motion";
-import ScrollHandler from "@/components/ScrollHandler";
+// import ScrollHandler from "@/components/ScrollHandler";
 import ContactForm from "@/components/ContactForm";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -19,7 +19,7 @@ export default function Page() {
   useEffect(() => {
     const lenis = new Lenis();
 
-    function raf(time: any) {
+    function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
@@ -31,10 +31,10 @@ export default function Page() {
     <>
       <BackgroundBeams className="pointer-events-none" />
       <main className="flex flex-col items-center justify-center">
-        <ScrollHandler />
         <TextGenerateEffect
           words="
           Hello, I'm Praneet!"
+          className={`${isDark ? "text-white" : "text-black"} `}
         />
 
         {/* intro */}
@@ -49,7 +49,7 @@ export default function Page() {
                 isDark ? "text-[#e5e5e5]" : "text-gray-700"
               }`}
             >
-              A fullstack developer who's currently focused on Web Development.
+              A fullstack developer who is currently focused on Web Development.
               Other than that, I'm also interested in UX/UI Design. I like to
               build things that make life easier.
             </p>

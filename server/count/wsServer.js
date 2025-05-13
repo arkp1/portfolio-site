@@ -7,7 +7,7 @@ wss.on("connection", (ws) => {
   console.log("connected");
   broadcastCount();
 
-  ws.on("close", (ws) => {
+  ws.on("close", () => {
     console.log("disconnected");
     broadcastCount();
   });

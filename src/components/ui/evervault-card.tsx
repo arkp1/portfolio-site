@@ -26,13 +26,12 @@ export const EvervaultCard = ({
   project: any;
   className?: string;
 }) => {
-  let mouseX = useMotionValue(0);
-  let mouseY = useMotionValue(0);
-  const [randomString, setRandomString] = useState("");
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   const { isDark } = useTheme();
 
   function onMouseMove({ currentTarget, clientX, clientY }: any) {
-    let { left, top } = currentTarget.getBoundingClientRect();
+    const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
@@ -49,7 +48,6 @@ export const EvervaultCard = ({
           <CardPattern
             mouseX={mouseX}
             mouseY={mouseY}
-            randomString={randomString}
           />
 
           <MdOutlineArrowOutward className="absolute top-4 right-4 text-lg" />
@@ -80,8 +78,8 @@ export const EvervaultCard = ({
 };
 
 export function CardPattern({ mouseX, mouseY, randomString }: any) {
-  let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
-  let style = { maskImage, WebkitMaskImage: maskImage };
+  const maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  const style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
     <div className="pointer-events-none">

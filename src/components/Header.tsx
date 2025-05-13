@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "./ThemeProvider";
 import { Switch } from "@radix-ui/react-switch";
 import { CiDark, CiLight } from "react-icons/ci";

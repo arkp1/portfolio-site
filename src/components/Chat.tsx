@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Send } from "lucide-react";
-var generateName = require("sillyname");
+const generateName = require("sillyname");
 
 interface Message {
   id: number;
