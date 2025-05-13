@@ -11,6 +11,8 @@ import { Modal, ModalTrigger } from "@/components/ui/animated-modal";
 import { motion } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
 import { Toaster } from "@/components/ui/sonner";
+import Header from "@/components/Header";
+import { WebSocketProvider } from "@/Utils/WebSocketContext";
 
 export default function Page() {
   const { isDark } = useTheme();
@@ -29,6 +31,9 @@ export default function Page() {
   return (
     <>
       <BackgroundBeams className="pointer-events-none" />
+      <WebSocketProvider>
+      <Header />
+      </WebSocketProvider>
       <main className="flex flex-col items-center justify-center">
         <TextGenerateEffect
           words="
@@ -57,9 +62,7 @@ export default function Page() {
 
         {/* tech */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
-          <h2 className="text-2xl font-bold text-left mt-8">
-           Skills :
-          </h2>
+          <h2 className="text-2xl font-bold text-left mt-8">Skills :</h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
             {TechLogos.map((logo) => {
               return (
@@ -87,7 +90,11 @@ export default function Page() {
 
           <div className="flex justify-center mt-5 text-lg">
             <Modal>
-            <ModalTrigger className={`${isDark ? "bg-[#e5e5e5]" : "bg-white"}  hover:opacity-60 flex justify-center group/modal-btn cursor-pointer`}>
+              <ModalTrigger
+                className={`${
+                  isDark ? "bg-[#e5e5e5]" : "bg-white"
+                }  hover:opacity-60 flex justify-center group/modal-btn cursor-pointer`}
+              >
                 <a
                   className={`group-hover/modal-btn:translate-x-40 text-center transition duration-500 text-black`}
                   href="https://github.com/arkp1?tab=repositories&type=source"

@@ -4,24 +4,16 @@ import { useTheme } from "./ThemeProvider";
 import { Switch } from "@radix-ui/react-switch";
 import { CiDark, CiLight } from "react-icons/ci";
 import Chat from "./Chat";
+import { useOnlineUsers } from "@/Utils/onlineUsers";
 
 export default function Header() {
   const { isDark, toggleDarkMode } = useTheme();
-  const [activeUsers, setActiveUsers] = useState(0);
   const [chatOpen, setChatOpen] = useState(false);
+  const activeUsers = useOnlineUsers()
 
   const toggleChat = () => {
     setChatOpen(!chatOpen);
   };
-
-  useEffect(() => {
-    const ws = new WebSocket(process.env.NEXT_PUBLIC_WS_WEBSOCKET_URL as string);
-    ws.onmessage = (event: MessageEvent) => {
-      const count = parseInt(event.data);
-      setActiveUsers(count);
-    };
-    return () => ws.close();
-  }, []);
 
   const [time, setTime] = useState(new Date());
 

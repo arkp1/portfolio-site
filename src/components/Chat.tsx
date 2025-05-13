@@ -2,9 +2,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Send } from "lucide-react";
 const generateName = require("sillyname");
+import { v4 as uuidv4 } from "uuid";
+import { useWebSocket } from "@/Utils/WebSocketContext"; 
 
 interface Message {
-  id: number;
+  id: string;
   text: string;
   sender: "user" | "other";
   senderName: string;
@@ -12,86 +14,73 @@ interface Message {
 }
 
 function Chat() {
-  const ws = useRef<WebSocket | null>(null);
+  const { ws, isConnected } = useWebSocket(); 
   const [messages, setMessages] = useState<Message[]>(() => {
     if (typeof window !== "undefined") {
-    const saved = sessionStorage.getItem("messages");
-    return saved
-      ? JSON.parse(saved).map((msg: Message) => ({
-          ...msg,
-          timestamp: new Date(msg.timestamp),
-        }))
-      : [];
-}});
+      const saved = sessionStorage.getItem("messages");
+      return saved
+        ? JSON.parse(saved).map((msg: any) => ({
+            ...msg,
+            timestamp: new Date(msg.timestamp),
+          }))
+        : [];
+    }
+    return [];
+  });
   const [inputText, setInputText] = useState("");
   const clientId = useRef<string>(Math.random().toString(36).substring(2, 9));
   const userName = useRef<string>(generateName());
 
-  //receiving
   useEffect(() => {
-    ws.current = new WebSocket(process.env.NEXT_PUBLIC_CHAT_WEBSOCKET_URL as string);
-    ws.current.onopen = () => {
-      ws.current?.send(
-        JSON.stringify({
-          type: "connection",
-          senderId: clientId.current,
-          senderName: userName.current,
-        })
-      );
-    };
+    if (!ws || !isConnected) return;
 
-    ws.current.onmessage = (e: MessageEvent) => {
+    ws.send(
+      JSON.stringify({
+        type: "connection",
+        senderId: clientId.current,
+        senderName: userName.current,
+      })
+    );
+
+    const handleMessage = (e: MessageEvent) => {
       const msg = JSON.parse(e.data);
-      const isOwnMessage = msg.senderId === clientId.current;
 
-      const newMessage: Message = {
-        id: Date.now(),
-        text: msg.text,
-        sender: isOwnMessage ? "user" : "other",
-        senderName: msg.senderName,
-        timestamp: new Date(),
-      }
-
-      if (!isOwnMessage) {
+      if (msg.type === "chat") {
+        const isOwnMessage = msg.senderId === clientId.current;
+        const newMessage: Message = {
+          id: uuidv4(),
+          text: msg.text,
+          sender: isOwnMessage ? "user" : "other",
+          senderName: msg.senderName,
+          timestamp: new Date(),
+        };
         setMessages((prev) => [...prev, newMessage]);
       }
     };
 
-    ws.current.onerror = (err) => {
-      console.error("WebSocket error:", err);
-    };
-
-    ws.current.onclose = () => {
-      console.log("WebSocket connection closed");
-    };
-
-    return () => {
-      ws.current?.close();
-    };
-  }, []);
+    ws.addEventListener("message", handleMessage);
+    return () => ws.removeEventListener("message", handleMessage);
+  }, [ws, isConnected]);
 
   useEffect(() => {
-    const saveMsg = sessionStorage.setItem(
-      "messages",
-      JSON.stringify(messages)
-    );
+    sessionStorage.setItem("messages", JSON.stringify(messages));
   }, [messages]);
 
-  //sending
   const handleSend = () => {
-    if (inputText.trim()) {
+    if (inputText.trim() && ws && isConnected) {
       const newMessage: Message = {
-        id: Date.now(),
+        id: uuidv4(),
         text: inputText,
         sender: "user",
         senderName: userName.current,
         timestamp: new Date(),
       };
 
-      setMessages([...messages, newMessage]);
+      setMessages((prev) => [...prev, newMessage]);
 
-      ws.current?.send(
+      ws.send(
         JSON.stringify({
+          type: "chat",
           text: inputText,
           senderId: clientId.current,
           senderName: userName.current,
@@ -107,6 +96,7 @@ function Chat() {
       handleSend();
     }
   };
+
   return (
     <div
       className="absolute top-full right-0 left-26 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto"
@@ -117,31 +107,32 @@ function Chat() {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages && messages.map((message: Message) => (
-          <div
-            key={message.id}
-            className={`flex ${
-              message.sender === "user" ? "justify-end" : "justify-start"
-            }`}
-          >
+        {messages &&
+          messages.map((message: Message) => (
             <div
-              className={`max-w-[80%] rounded-lg p-2 max-h-fit ${
-                message.sender === "user"
-                  ? "bg-blue-600 text-white"
-                  : "bg-neutral-800 text-neutral-100"
+              key={message.id}
+              className={`flex ${
+                message.sender === "user" ? "justify-end" : "justify-start"
               }`}
             >
-              <p className="text-xs">{message.senderName}</p>
-              <p className="text-base">{message.text}</p>
-              <span className="text-[10px] opacity-70">
-                {message.timestamp.toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </span>
+              <div
+                className={`max-w-[80%] rounded-lg p-2 max-h-fit ${
+                  message.sender === "user"
+                    ? "bg-blue-600 text-white"
+                    : "bg-neutral-800 text-neutral-100"
+                }`}
+              >
+                <p className="text-xs">{message.senderName}</p>
+                <p className="text-base">{message.text}</p>
+                <span className="text-[10px] opacity-70">
+                  {message.timestamp.toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
 
       <div className="p-3 border-t border-neutral-800 flex-shrink-0">

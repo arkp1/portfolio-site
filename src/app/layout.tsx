@@ -32,7 +32,6 @@ export default function RootLayout({
           <meta name="viewport" content="width=device-width" />
         </head>
         <body className={`${space_grotesk.className} antialiased min-h-screen`}>
-          <Header />
           <main className="flex flex-col p-2 md:p-4">{children}</main>
           <div>
             <FloatingDock items={links} />

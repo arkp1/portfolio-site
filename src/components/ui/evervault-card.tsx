@@ -4,6 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "../ThemeProvider";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { v4 as uuidv4 } from "uuid"
 
 export const ProjectGrid = ({ projects }: { projects: any[] }) => {
   return (
@@ -62,7 +63,7 @@ export const EvervaultCard = ({
               {project.stack.map((tech: any, index: any) => {
                 return (
                   <span
-                    key={index}
+                    key={uuidv4()}
                     className={`font-extralight text-sm ${isDark ? "text-zinc-900" : "text-[#e5e5e5]"} px-2 py-2 ${isDark ? "bg-[#e5e5e5]" : "bg-zinc-700" } rounded-full`}
                   >
                     {tech}
