@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Send } from "lucide-react";
 const generateName = require("sillyname");
 import { v4 as uuidv4 } from "uuid";
-import { useWebSocket } from "@/Utils/WebSocketContext"; 
+import { useWebSocket } from "@/Utils/WebSocketContext";
 
 interface Message {
   id: string;
@@ -14,7 +14,7 @@ interface Message {
 }
 
 function Chat() {
-  const { ws, isConnected } = useWebSocket(); 
+  const { ws, isConnected } = useWebSocket();
   const [messages, setMessages] = useState<Message[]>(() => {
     if (typeof window !== "undefined") {
       const saved = sessionStorage.getItem("messages");
@@ -30,6 +30,7 @@ function Chat() {
   const [inputText, setInputText] = useState("");
   const clientId = useRef<string>(Math.random().toString(36).substring(2, 9));
   const userName = useRef<string>(generateName());
+  const currentmessageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!ws || !isConnected) return;
@@ -97,16 +98,22 @@ function Chat() {
     }
   };
 
+    useEffect(() => {
+    if (currentmessageRef.current) {
+      currentmessageRef.current.scrollTop = currentmessageRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   return (
     <div
-      className="absolute top-full right-0 left-20 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto"
+      className="absolute top-full right-0 left-20 mt-2 max-h-screen w-72 md:w-84 h-96 bg-neutral-900/90 backdrop-blur-sm rounded-lg shadow-lg border border-neutral-800 flex flex-col z-50 overflow-y-auto scroll-smooth"
       onWheel={(e) => e.stopPropagation()}
     >
       <div className="flex items-center justify-center p-3 border-b border-neutral-800 flex-shrink-0">
         <h3 className="text-sm font-medium text-white">Chat</h3>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div ref={currentmessageRef} className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages &&
           messages.map((message: Message) => (
             <div
