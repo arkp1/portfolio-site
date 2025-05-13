@@ -1,8 +1,8 @@
 import { WebSocketServer } from "ws";
 
-const port = process.env.NEXT_PUBLIC_WS_WEBSOCKET_SERVER_PORT
-const wss = new WebSocketServer({ port: Number(port) });
-
+const port = Number(process.env.WEBSOCKET_SERVER_PORT || 8081)
+const wss = new WebSocketServer({ port });
+console.log(Number(port))
 wss.on("connection", (ws) => {
   console.log("connected");
   broadcastCount();
