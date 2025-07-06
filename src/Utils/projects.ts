@@ -7,6 +7,12 @@ type Project = {
 
 const MyProjects: Project[] = [
     {
+    name: "HTTP-Server",
+    description: "A custom made HTTP server built from scratch using C++.",
+    url: "https://github.com/arkp1/http-server",
+    stack: ["C++", "TCP/IP", "Docker"] 
+    },
+    {
     name: "Image Compressor",
     description: "A sleek image compressor with custom quality input.",
     url: "https://compressit-puce.vercel.app/",
@@ -23,12 +29,6 @@ const MyProjects: Project[] = [
     description: "An app that generates a recipe based on the ingredients you add. Uses Mistral AI.",
     url: "https://my-chef-web.netlify.app/",
     stack: ["Mistral API", "React.js", "Tailwind CSS"]
-},
-{
-    name: "Lead Tracker Extension",
-    description: "Track and save important sites.",
-    url: "",
-    stack: ["React.js", "Web API", "Tailwind CSS"] 
 },
 ]
 

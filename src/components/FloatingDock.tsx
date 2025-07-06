@@ -47,7 +47,7 @@ export const links = [
         <path d="M13 11l1.5 6l1.5 -6" />
       </svg>
     ),
-    href: "https://drive.google.com/file/d/1f9zGodtA6mZzSLkt1VNaf9eYiNJsA0eC/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1hLHDhCDNJtQfaVVd5fAQs75TgMnWL_DW/view?usp=sharing",
   },
   {
     title: "LinkedIn",
