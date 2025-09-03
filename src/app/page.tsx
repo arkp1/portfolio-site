@@ -38,7 +38,7 @@ export default function Page() {
         <TextGenerateEffect
           words="
           Hello, I'm Praneet!"
-          className={`${isDark ? "text-white" : "text-black"} `}
+          className={`${isDark ? "text-white" : "text-black"}`}
         />
 
         {/* intro */}
@@ -62,7 +62,7 @@ export default function Page() {
 
         {/* tech */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
-          <h2 className="text-2xl md:text-3xl font-bold text-left mt-4 ml-2">Skills :</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-left mt-4 ml-2 mb-1">Skills :</h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
             {TechLogos.map((logo) => {
               return (
