@@ -62,7 +62,7 @@ export default function Page() {
 
         {/* tech */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
-          <h2 className="text-2xl font-bold text-left mt-8">Skills :</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-left mt-4 ml-2">Skills :</h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
             {TechLogos.map((logo) => {
               return (
@@ -122,7 +122,7 @@ export default function Page() {
 
           {/* contact form */}
           <div className="flex-col items-center justify-center mt-10 grid md:grid-cols-2 gap-6">
-            <div className="flex justify-center items-center text-2xl">
+            <div className="flex justify-center items-center md:text-4xl font-bold">
               Contact:
             </div>
             <ContactForm />
