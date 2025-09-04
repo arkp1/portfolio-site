@@ -70,7 +70,7 @@ export default function Page() {
                   <img
                     src={logo.icon}
                     alt={logo.name}
-                    className="w-8 h-8"
+                    className="w-8 h-8 hover:rotate-10"
                     loading="lazy"
                   />
                   <span className="font-semibold">{logo.name}</span>

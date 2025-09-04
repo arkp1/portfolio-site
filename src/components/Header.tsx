@@ -73,7 +73,7 @@ export default function Header() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-messages h-6 w-6 hover:opacity-60"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-messages h-6 w-6 hover:opacity-60 hover:scale-115 transition-transform"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
