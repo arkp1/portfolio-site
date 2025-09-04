@@ -66,11 +66,11 @@ export default function Page() {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
             {TechLogos.map((logo) => {
               return (
-                <div key={logo.name} className="flex items-center gap-2 p-2">
+                <div key={logo.name} className="flex items-center gap-2 p-2 hover:rotate-6">
                   <img
                     src={logo.icon}
                     alt={logo.name}
-                    className="w-8 h-8 hover:rotate-10"
+                    className="w-8 h-8 hover:rotate-6"
                     loading="lazy"
                   />
                   <span className="font-semibold">{logo.name}</span>
