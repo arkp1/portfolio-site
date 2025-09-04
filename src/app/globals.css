@@ -6,8 +6,8 @@
 }
 
 ::selection {
-  background: #02ced1; /* Light Blue */
-  color: black;
+  background: rgba(40, 7, 7, 0.8); /* Light Blue */
+  color:#EF6262;
 }
 @theme inline {
   --color-background: var(--background);

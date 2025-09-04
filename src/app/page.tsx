@@ -53,7 +53,7 @@ export default function Page() {
                 isDark ? "text-[#e5e5e5]" : "text-gray-700"
               }`}
             >
-              A fullstack developer who is currently focused on Web Development.
+              A coding enthusiast & a passionate fullstack developer focused on scalable, user-centric web apps.
               Other than that, I'm also interested in UX/UI Design. I like to
               build things that make life easier.
             </p>

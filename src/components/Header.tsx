@@ -33,7 +33,7 @@ export default function Header() {
           <Switch
             checked={isDark}
             onCheckedChange={toggleDarkMode}
-            className="peer h-6 w-11 rounded-full bg-neutral-400 data-[state=checked]:bg-neutral-800 transition-colors cursor-pointe border-1 border-neutral-50"
+            className="peer h-6 w-11 rounded-full bg-neutral-400 data-[state=checked]:bg-neutral-800 transition-colors cursor-pointe border-1"
           />
           <div
             className={`
