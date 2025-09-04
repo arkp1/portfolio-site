@@ -37,7 +37,7 @@ export default function Page() {
       <main className="flex flex-col items-center justify-center">
         <TextGenerateEffect
           words="
-          Hello, I'm Praneet!"
+          <Hello, I'm Praneet!/>"
           className={`${isDark ? "text-white" : "text-black"}`}
         />
 
