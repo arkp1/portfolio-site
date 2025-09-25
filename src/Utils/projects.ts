@@ -25,7 +25,7 @@ const MyProjects: Project[] = [
     stack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"]
 },
 {
-    name: "My Chef",
+    name: "My Chef - AI powered recipe generator",
     description: "An app that generates a recipe based on the ingredients you add. Uses Mistral AI.",
     url: "https://my-chef-web.netlify.app/",
     stack: ["Mistral API", "React.js", "Tailwind CSS"]
