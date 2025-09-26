@@ -83,7 +83,7 @@ export function FloatingDockDemo() {
         "h-[40rem] w-full rounded-lg border border-dashed bg-neutral-100/50 dark:bg-neutral-900/40"
       )}
     >
-      <FloatingDock items={links} mobileClassName="bottom-10" />
+      <FloatingDock items={links} mobileClassName="bottom-10"/>
     </div>
   );
 }
