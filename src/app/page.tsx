@@ -92,7 +92,7 @@ export default function Page() {
             <Modal>
               <ModalTrigger
                 className={`${
-                  isDark ? "bg-[#e5e5e5]" : "bg-white"
+                  isDark ? "bg-[#e5e5e5]" : "bg-gray-200"
                 }  hover:opacity-60 flex justify-center group/modal-btn cursor-pointer`}
               >
                 <a
