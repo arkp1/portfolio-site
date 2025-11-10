@@ -6,7 +6,7 @@ const USERNAME = process.env.LASTFM_USERNAME!;
 export async function GET() {
   try {
     const res = await fetch(
-      `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${USERNAME}&api_key=${API_KEY}&format=json&limit=1`
+      `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${USERNAME}&api_key=${API_KEY}&format=json&limit=1`
     );
 
     if (!res.ok) {
