@@ -7,7 +7,6 @@ export default function Player() {
       const res = await fetch("/api/spotify");
       const data = await res.json();
       setSong(data);
-      console.log(data);
     } catch (err) {
       console.log("music data fetch error", err);
     }
