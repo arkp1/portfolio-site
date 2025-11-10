@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from "uuid"
 export const ProjectGrid = ({ projects }: { projects: any[] }) => {
   return (
     <>
-      <h1 className="text-3xl md:text-4xl font-bold mt-5">Projects:</h1>
+      <h1 className="text-2xl md:text-3xl font-bold mt-5">Projects:</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
         {projects.map((project, i) => (
@@ -56,7 +56,7 @@ export const EvervaultCard = ({
           <MdOutlineArrowOutward className="absolute top-4 right-4 text-lg" />
 
           <div className="relative z-10 text-center px-4">
-            <h2 className={`md:text-3xl font-bold underline`}>{project.name}</h2>
+            <h2 className={`md:text-2xl font-bold underline`}>{project.name}</h2>
             <p className="text-lg md:text-xl mt-1 line-clamp-3">
               {project.description}
             </p>

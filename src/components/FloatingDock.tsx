@@ -47,7 +47,7 @@ export const links = [
         <path d="M13 11l1.5 6l1.5 -6" />
       </svg>
     ),
-    href: "https://drive.google.com/file/d/1pRhsx2TUfaOgEP3mGp31lZdbvZ2vIsdB/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1tfoQZUoDj_SHOmYajUV2dqf8JP_aQAvO/view?usp=sharing",
   },
   {
     title: "LinkedIn",
@@ -74,6 +74,29 @@ export const links = [
     ),
     href: "https://www.linkedin.com/in/a-r-k-praneet-1ba4592b8/",
   },
+  {
+    title: "Leetcode",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="icon icon-tabler icons-tabler-outline icon-tabler-brand-leetcode text-white"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 13h7.5" />
+        <path d="M9.424 7.268l4.999 -4.999" />
+        <path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313" />
+      </svg>
+    ),
+    href: "https://leetcode.com/u/praneet7/",
+  },
 ];
 
 export function FloatingDockDemo() {
@@ -83,7 +106,7 @@ export function FloatingDockDemo() {
         "h-[40rem] w-full rounded-lg border border-dashed bg-neutral-100/50 dark:bg-neutral-900/40"
       )}
     >
-      <FloatingDock items={links} mobileClassName="bottom-10"/>
+      <FloatingDock items={links} mobileClassName="bottom-10" />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import ContactForm from "@/components/ContactForm";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import { WebSocketProvider } from "@/Utils/WebSocketContext";
+import Player from "@/components/Player";
 
 export default function Page() {
   const { isDark } = useTheme();
@@ -32,7 +33,7 @@ export default function Page() {
     <>
       <BackgroundBeams className="pointer-events-none" />
       <WebSocketProvider>
-      <Header />
+        <Header />
       </WebSocketProvider>
       <main className="flex flex-col items-center justify-center">
         <TextGenerateEffect
@@ -53,20 +54,26 @@ export default function Page() {
                 isDark ? "text-[#e5e5e5]" : "text-gray-700"
               }`}
             >
-              A coding enthusiast & a passionate fullstack developer focused on scalable, user-centric web apps.
-              Other than that, I'm also interested in UX/UI Design. I like to
-              build things that make life easier.
+              A coding enthusiast & a passionate fullstack developer focused on
+              scalable, user-centric web apps. Other than that, I'm also
+              interested in UX/UI Design. I like to build things that make life
+              easier.
             </p>
           </div>
         </motion.div>
 
         {/* tech */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
-          <h2 className="text-2xl md:text-3xl font-bold text-left mt-4 ml-2 mb-1">Skills :</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-left mt-4 ml-2 mb-1">
+            Skills :
+          </h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
             {TechLogos.map((logo) => {
               return (
-                <div key={logo.name} className="flex items-center gap-2 p-2 hover:rotate-6">
+                <div
+                  key={logo.name}
+                  className="flex items-center gap-2 p-2 hover:rotate-6"
+                >
                   <img
                     src={logo.icon}
                     alt={logo.name}
@@ -80,23 +87,27 @@ export default function Page() {
           </div>
         </div>
 
+        <div className="flex flex-col transform scale-90 md:scale-100 mt-4 md:mt-14">
+          <Player />
+        </div>
+
         {/* projects */}
         <div
           className={`${
             isDark ? "text-[#e5e5e5]" : "text-gray-900"
-          } text-2xl mt-14`}
+          } text-xl md:mt-14`}
         >
           <ProjectGrid projects={MyProjects} />
 
-          <div className="flex justify-center mt-5 text-lg">
+          <div className="flex justify-center mt-5 text-lg text-white dark:text-black">
             <Modal>
               <ModalTrigger
                 className={`${
-                  isDark ? "bg-[#e5e5e5]" : "bg-gray-200"
+                  isDark ? "bg-[#e5e5e5]" : "bg-[#e5e5e5]"
                 }  hover:opacity-60 flex justify-center group/modal-btn cursor-pointer`}
               >
                 <a
-                  className={`group-hover/modal-btn:translate-x-40 text-center transition duration-500 text-black`}
+                  className={`group-hover/modal-btn:translate-x-40 text-center transition duration-500`}
                   href="https://github.com/arkp1?tab=repositories&type=source"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -112,7 +123,7 @@ export default function Page() {
                   <img
                     src="arrow-right.svg"
                     alt="arrow"
-                    className="h-6 w-6 text-red-600"
+                    className="h-6 w-6 text-black"
                     loading="lazy"
                   />
                 </a>
@@ -122,10 +133,11 @@ export default function Page() {
 
           {/* contact form */}
           <div className="flex-col items-center justify-center mt-10 grid md:grid-cols-2 gap-6">
-            <div className="flex justify-center items-center md:text-4xl font-bold">
+            <div className="flex justify-center items-center text-2xl md:text-3xl font-bold">
               Contact:
             </div>
             <ContactForm />
+            {/* <Footer /> */}
             <Toaster />
           </div>
         </div>

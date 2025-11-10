@@ -1,7 +1,7 @@
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
-import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { links } from "@/components/FloatingDock";
 import { FloatingDock } from "@/components/ui/floating-dock";
@@ -35,6 +35,9 @@ export default function RootLayout({
           <main className="flex flex-col p-2 md:p-4">{children}</main>
           <div>
             <FloatingDock items={links}/>
+          </div>
+          <div className="md:hidden">
+            <Footer />
           </div>
         </body>
       </html>

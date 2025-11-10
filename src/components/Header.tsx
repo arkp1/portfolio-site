@@ -9,15 +9,17 @@ import { useOnlineUsers } from "@/Utils/onlineUsers";
 export default function Header() {
   const { isDark, toggleDarkMode } = useTheme();
   const [chatOpen, setChatOpen] = useState(false);
-  const activeUsers = useOnlineUsers()
+  const activeUsers = useOnlineUsers();
 
   const toggleChat = () => {
     setChatOpen(!chatOpen);
   };
 
   const [time, setTime] = useState(new Date());
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -53,6 +55,7 @@ export default function Header() {
           </div>
         </div>
 
+        {/* chat */}
         <div className="flex w-full items-center justify-center text-lg relative">
           <div className="flex items-center gap-1 pr-10 md:gap-2 relative">
             {activeUsers > 0 ? (
@@ -102,16 +105,19 @@ export default function Header() {
             )}
           </div>
 
-          <div className="ml-auto absolute right-4">
-            <p className="hidden md:block">{time.toLocaleTimeString()}</p>
-            <p className="block text-lg md:hidden">
-              {time.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-              })}
-            </p>
-          </div>
+          {/* time */}
+          {mounted && (
+            <div className="ml-auto absolute right-4">
+              <p className="hidden md:block">{time.toLocaleTimeString()}</p>
+              <p className="block text-lg md:hidden">
+                {time.toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: false,
+                })}
+              </p>
+            </div>
+          )}
         </div>
       </header>
     </main>
