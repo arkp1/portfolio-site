@@ -24,13 +24,13 @@ export const WebSocketProvider = ({ children }: { children: ReactNode }) => {
     const socket = new WebSocket(process.env.NEXT_PUBLIC_WS_URL!);
 
     socket.onopen = () => {
-      console.log("WebSocket connected");
+      // console.log("WebSocket connected");
       setWs(socket);
       setIsConnected(true);
     };
 
     socket.onclose = () => {
-      console.log("WebSocket disconnected");
+      // console.log("WebSocket disconnected");
       setWs(null);
       setIsConnected(false);
     };

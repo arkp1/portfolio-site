@@ -13,7 +13,7 @@ export function useOnlineUsers() {
         const data = JSON.parse(event.data);
         if (data.type === "count") {
           setActiveUsers(data.count);
-          console.log("Online count updated:", data.count);
+          // console.log("Online count updated:", data.count);
         }
       } catch (e) {
         console.error("Error parsing message:", e);
