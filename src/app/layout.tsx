@@ -33,7 +33,7 @@ export default function RootLayout({
         </head>
         <body className={`${space_grotesk.className} antialiased min-h-screen`}>
           <main className="flex flex-col p-2 md:p-4">{children}</main>
-          <div>
+          <div className="hidden md:block">
             <FloatingDock items={links}/>
           </div>
           <div className="md:hidden">

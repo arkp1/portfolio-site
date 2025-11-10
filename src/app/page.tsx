@@ -55,8 +55,7 @@ export default function Page() {
               }`}
             >
               A coding enthusiast & a passionate fullstack developer focused on
-              scalable, user-centric web apps. Other than that, I'm also
-              interested in UX/UI Design. I like to build things that make life
+              scalable, user-centric web apps. I like to build things that make life
               easier.
             </p>
           </div>
