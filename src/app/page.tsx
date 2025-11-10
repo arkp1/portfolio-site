@@ -50,7 +50,7 @@ export default function Page() {
         >
           <div>
             <p
-              className={`mt-4 text-lg text-center text-pretty p-6  ${
+              className={`mt-4 text-lg text-center text-pretty p-3  ${
                 isDark ? "text-[#e5e5e5]" : "text-gray-700"
               }`}
             >
@@ -77,7 +77,7 @@ export default function Page() {
                   <img
                     src={logo.icon}
                     alt={logo.name}
-                    className="w-8 h-8 hover:rotate-6"
+                    className="w-6 md:w-8 h-6 md:h-8 hover:rotate-6"
                     loading="lazy"
                   />
                   <span className="font-semibold">{logo.name}</span>

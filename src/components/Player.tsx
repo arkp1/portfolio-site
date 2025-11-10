@@ -21,7 +21,7 @@ export default function Player() {
 
   return (
     <>
-      <div className="relative border-2 border-gray-500 rounded-lg p-2 backdrop-blur-md">
+      <div className="relative border-2 border-gray-500 rounded-lg backdrop-blur-md p-2">
         <div className="flex justify-center items-center">
           <img
             src={song?.recenttracks?.track?.[0]?.image?.[2]?.["#text"]}
@@ -31,10 +31,10 @@ export default function Player() {
           />
           <div className="flex flex-col">
             <p className="text-gray-400 text-sm font-normal">Last Played</p>
-            <h1 className="font-bold">
+            <h1 className="font-bold text-sm">
               {song?.recenttracks?.track?.[0]?.name || "Not Available"}
             </h1>
-            <h2 className="font-medium">
+            <h2 className="font-normal text-sm">
               {song?.recenttracks?.track?.[0]?.artist?.["#text"]}
             </h2>
           </div>
