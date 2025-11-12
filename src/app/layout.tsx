@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { links } from "@/components/FloatingDock";
 import { FloatingDock } from "@/components/ui/floating-dock";
+import { Analytics } from "@vercel/analytics/next"
 
 const space_grotesk = Space_Grotesk({
   variable: "--font-inter",
@@ -39,6 +40,7 @@ export default function RootLayout({
           <div className="md:hidden">
             <Footer />
           </div>
+          <Analytics />
         </body>
       </html>
     </ThemeProvider>
