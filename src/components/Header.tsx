@@ -26,11 +26,11 @@ export default function Header() {
 
   return (
     <main
-      className={`flex flex-col items-center justify-between p-3 md:p-4 ${
+      className={`flex flex-col backdrop-blur-sm items-center justify-between p-3 md:p-4 ${
         isDark ? "text-[#e5e5e5]" : "text-black"
       }`}
     >
-      <header className="flex w-full flex-row items-center justify-center lg:flex-row relative">
+      <header className="flex w-full p-3 flex-row items-center justify-center lg:flex-row relative">
         <div className="relative inline-flex items-center mr-auto">
           <Switch
             checked={isDark}

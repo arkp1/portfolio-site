@@ -4,22 +4,27 @@ import Image from "next/image";
 const Footer: React.FC = () => {
   const socialLinks = [
     {
-      icon: "/github-svgrepo-com.svg",
+      icon: "/icons/github.svg",
       url: "https://github.com/arkp1",
       label: "GitHub",
     },
+       {
+      icon: "/icons/document-text-svgrepo-com.svg",
+      url: "https://drive.google.com/file/d/1EtHJA23D8loedQ3av-trw11L9kJkZ6pK/view?usp=sharing",
+      label: "Resume",
+    },
     {
-      icon: "/linkedin-svgrepo-com.svg",
+      icon: "/icons/linkedin-svgrepo-com.svg",
       url: "https://www.linkedin.com/in/a-r-k-praneet-1ba4592b8/",
       label: "LinkedIn",
     },
     {
-      icon: "/leetcode-svgrepo.svg",
+      icon: "/icons/leetcode-svgrepo.svg",
       url: "https://leetcode.com/u/praneet7/",
       label: "Leetcode",
     },
     {
-      icon: "/mail-svgrepo.svg",
+      icon: "/icons/mail-svgrepo.svg",
       url: "mailto:praneet2656@gmail.com",
       label: "Mail",
     },

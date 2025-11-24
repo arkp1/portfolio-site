@@ -32,11 +32,13 @@ export default function Page() {
 
   return (
     <>
-      <BackgroundBeams className="pointer-events-none" />
       <WebSocketProvider>
-        <Header />
+        <div className="fixed w-full z-50 top-0 left-0">
+          <Header />
+        </div>
       </WebSocketProvider>
-      <main className="flex flex-col items-center justify-center">
+      <BackgroundBeams className="pointer-events-none" />
+      <main className="flex flex-col items-center justify-center pt-12">
         <TextGenerateEffect
           words="
           <Hello, I'm Praneet!/>"
@@ -64,8 +66,8 @@ export default function Page() {
 
         {/* tech */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
-          <h2 className="text-2xl md:text-3xl font-bold text-left mt-4 ml-2 mb-1">
-            Skills :
+          <h2 className="text-xl md:text-2xl font-bold text-left mt-4 ml-2 mb-1">
+            Skills
           </h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
             {TechLogos.map((logo) => {
@@ -130,9 +132,9 @@ export default function Page() {
             </Modal>
           </div>
 
-          <div className="flex flex-col w-min justify-center items-center m-5 bg-transparent overflow-hidden mx-auto hidden md:scale-90 md:flex">
-            <h2 className="text-2xl md:text2xl font-bold text-left m-5">
-              Github Activity :
+          <div className="flex flex-col w-80 max-w-screen md:w-min justify-center items-center m-5 bg-transparent overflow-hidden mx-auto md:scale-95 md:flex">
+            <h2 className="text-xl md:text2xl font-bold text-left m-5">
+              Github Activity
             </h2>
             <GitHubCalendar
               username="arkp1"
@@ -142,8 +144,8 @@ export default function Page() {
 
           {/* contact form */}
           <div className="flex-col items-center justify-center mt-10 grid md:grid-cols-2 gap-6">
-            <div className="flex justify-center items-center text-2xl md:text-3xl font-bold">
-              Contact:
+            <div className="flex justify-center items-center text-xl md:text-2xl font-bold">
+              Contact
             </div>
             <ContactForm />
             {/* <Footer /> */}
