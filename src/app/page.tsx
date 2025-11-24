@@ -14,6 +14,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import { WebSocketProvider } from "@/Utils/WebSocketContext";
 import Player from "@/components/Player";
+import { GitHubCalendar } from "react-github-calendar";
 
 export default function Page() {
   const { isDark } = useTheme();
@@ -55,8 +56,8 @@ export default function Page() {
               }`}
             >
               A coding enthusiast & a passionate fullstack developer focused on
-              scalable, user-centric web apps. I like to build things that make life
-              easier.
+              scalable, user-centric web apps. I like to build things that make
+              life easier.
             </p>
           </div>
         </motion.div>
@@ -97,7 +98,6 @@ export default function Page() {
           } text-xl md:mt-14`}
         >
           <ProjectGrid projects={MyProjects} />
-
           <div className="flex justify-center mt-5 text-lg text-white dark:text-black">
             <Modal>
               <ModalTrigger
@@ -128,6 +128,16 @@ export default function Page() {
                 </a>
               </ModalTrigger>
             </Modal>
+          </div>
+
+          <div className="flex flex-col w-min justify-center items-center m-5 bg-transparent overflow-hidden mx-auto hidden md:scale-90 md:flex">
+            <h2 className="text-2xl md:text2xl font-bold text-left m-5">
+              Github Activity :
+            </h2>
+            <GitHubCalendar
+              username="arkp1"
+              colorScheme={isDark ? "dark" : "light"}
+            />
           </div>
 
           {/* contact form */}
