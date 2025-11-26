@@ -54,10 +54,10 @@ export const EvervaultCard = ({
           <MdOutlineArrowOutward className="absolute top-4 right-4 text-lg" />
 
           <div className="relative z-10 text-center px-5 w-full h-full">
-            <h2 className={`text-lg md:text-xl font-bold underline`}>
+            <h2 className={`text-lg lg:text-xl font-bold underline`}>
               {project.name}
             </h2>
-            <p className="text-lg md:text-lg mt-2 line-clamp-3">
+            <p className="text-lg lg:text-lg mt-2 line-clamp-3">
               {project.description}
             </p>
 
