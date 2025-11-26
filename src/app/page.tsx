@@ -38,7 +38,7 @@ export default function Page() {
         </div>
       </WebSocketProvider>
       <BackgroundBeams className="pointer-events-none" />
-      <main className="flex flex-col items-center justify-center pt-12">
+      <main className="flex flex-col items-center justify-center pt-12 md:p-5 md:pt-20 min-h-screen">
         <TextGenerateEffect
           words="
           <Hello, I'm Praneet!/>"
@@ -58,18 +58,18 @@ export default function Page() {
               }`}
             >
               A coding enthusiast & a passionate fullstack developer focused on
-              scalable, user-centric web apps. I like to build things that make
-              life easier.
+              scalable, user-centric web apps. With a focus on UI design. I like
+              to build things that make life easier.
             </p>
           </div>
         </motion.div>
 
-        {/* tech */}
+        {/* skills */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
           <h2 className="text-xl md:text-2xl font-bold text-left mt-4 ml-2 mb-1">
             Skills
           </h2>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
+          <div className="grid grid-cols-4 gap-4 md:grid-cols-4 lg:grid-cols-5">
             {TechLogos.map((logo) => {
               return (
                 <div
@@ -82,14 +82,14 @@ export default function Page() {
                     className="w-6 md:w-8 h-6 md:h-8 hover:rotate-6"
                     loading="lazy"
                   />
-                  <span className="font-semibold">{logo.name}</span>
+                  {/* <span className="font-semibold">{logo.name}</span> */}
                 </div>
               );
             })}
           </div>
         </div>
 
-        <div className="flex flex-col transform scale-90 md:scale-100 mt-4 md:mt-14">
+        <div className="flex flex-col transform scale-90 md:scale-100 mt-4 md:mt-10">
           <Player />
         </div>
 
@@ -122,7 +122,7 @@ export default function Page() {
                   target="_blank"
                 >
                   <img
-                    src="arrow-right.svg"
+                    src="icons/arrow-right.svg"
                     alt="arrow"
                     className="h-6 w-6 text-black"
                     loading="lazy"
@@ -132,7 +132,7 @@ export default function Page() {
             </Modal>
           </div>
 
-          <div className="flex flex-col w-80 max-w-screen md:w-min justify-center items-center m-5 bg-transparent overflow-hidden mx-auto md:scale-95 md:flex">
+          <div className="flex flex-col w-100 max-w-screen md:w-min justify-center items-center m-5 bg-transparent overflow-hidden mx-auto md:scale-95 md:flex">
             <h2 className="text-xl md:text2xl font-bold text-left m-5">
               Github Activity
             </h2>
@@ -142,16 +142,16 @@ export default function Page() {
             />
           </div>
 
-          {/* contact form */}
-          <div className="flex-col items-center justify-center mt-10 grid md:grid-cols-2 gap-6">
-            <div className="flex justify-center items-center text-xl md:text-2xl font-bold">
+          <div className="flex flex-col justify-center items-center pb-2 md:pl-46 md:pr-46 md:pb-14">
+            <h2 className="text-xl md:text-2xl font-bold text-left mt-4 mb-5">
               Contact
-            </div>
+            </h2>
             <ContactForm />
-            {/* <Footer /> */}
-            <Toaster />
           </div>
+          {/* <Footer /> */}
+          <Toaster />
         </div>
+        {/* </div> */}
       </main>
     </>
   );

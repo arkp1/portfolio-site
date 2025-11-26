@@ -4,17 +4,20 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "../ThemeProvider";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
 
 export const ProjectGrid = ({ projects }: { projects: any[] }) => {
   return (
     <>
-      <h1 className="text-xl md:text-2xl font-bold mt-5">Projects</h1>
+      <h1 className="text-xl md:text-2xl font-bold mt-5 mb-5">Projects</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
         {projects.map((project, i) => (
-          <div className="border border-neutral-300 dark:border-neutral-600 rounded-2xl" key={i}>
-          <EvervaultCard key={i} project={project} />
+          <div
+            className="border border-neutral-300 dark:border-neutral-600 rounded-xl"
+            key={i}
+          >
+            <EvervaultCard key={i} project={project} />
           </div>
         ))}
       </div>
@@ -40,39 +43,50 @@ export const EvervaultCard = ({
   }
 
   return (
-    <div
-      className={cn("p-0.5 bg-transparent w-full h-full relative", className)}
-    >
+    <div className={cn("p-0.5 bg-transparent w-fit h-fit relative", className)}>
       <a href={project.url} target="_blank" rel="noopener noreferrer">
         <div
           onMouseMove={onMouseMove}
-          className="group/card w-full h-60 relative overflow-hidden bg-transparent flex items-center justify-center"
+          className="group/card w-full h-auto min-h-60 relative overflow-hidden bg-transparent flex items-center justify-center py-6"
         >
-          <CardPattern
-            mouseX={mouseX}
-            mouseY={mouseY}
-          />
+          <CardPattern mouseX={mouseX} mouseY={mouseY} />
 
           <MdOutlineArrowOutward className="absolute top-4 right-4 text-lg" />
 
-          <div className="relative z-10 text-center px-2">
-            <h2 className={`text-lg md:text-2xl font-bold underline`}>{project.name}</h2>
-            <p className="text-lg md:text-xl mt-2 line-clamp-3">
+          <div className="relative z-10 text-center px-5 w-full h-full">
+            <h2 className={`text-lg md:text-xl font-bold underline`}>
+              {project.name}
+            </h2>
+            <p className="text-lg md:text-lg mt-2 line-clamp-3">
               {project.description}
             </p>
 
             <div className="flex flex-row flex-wrap mt-2 justify-center items-center gap-2">
               {project.stack.map((tech: any, index: any) => {
                 return (
-                  <span
-                    key={uuidv4()}
-                    className={`font-extralight text-sm ${isDark ? "text-zinc-900" : "text-[#e5e5e5]"} px-2 py-2 ${isDark ? "bg-[#e5e5e5]" : "bg-zinc-700" } rounded-full`}
-                  >
-                    {tech}
-                  </span>
+                  <React.Fragment key={index}>
+                    <span
+                      key={uuidv4()}
+                      className={`font-extralight text-sm ${
+                        isDark ? "text-zinc-900" : "text-[#e5e5e5]"
+                      } px-2 py-2 ${
+                        isDark ? "bg-[#e5e5e5]" : "bg-zinc-700"
+                      } rounded-full`}
+                    >
+                      {tech}
+                    </span>
+                  </React.Fragment>
                 );
               })}
             </div>
+
+            {project.image && (
+              <img
+                src={project.image}
+                alt={project.name}
+                className="mt-6 rounded-lg object-cover aspect-[16/9]"
+              />
+            )}
           </div>
         </div>
       </a>
