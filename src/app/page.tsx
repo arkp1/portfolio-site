@@ -53,7 +53,7 @@ export default function Page() {
         >
           <div>
             <p
-              className={`mt-4 text-lg text-center text-pretty p-3  ${
+              className={`mt-4 text-md md:text-lg text-center text-pretty p-3  ${
                 isDark ? "text-[#e5e5e5]" : "text-gray-700"
               }`}
             >
@@ -132,7 +132,7 @@ export default function Page() {
             </Modal>
           </div>
 
-          <div className="flex flex-col w-100 max-w-screen md:w-min justify-center items-center m-4 bg-transparent overflow-hidden mx-auto md:scale-100 md:flex">
+          <div className="flex flex-col w-85 max-w-screen md:w-min justify-center items-center m-4 bg-transparent overflow-hidden mx-auto md:scale-100 md:flex">
             <h2 className="text-xl md:text2xl font-bold text-left m-5">
               Github Activity
             </h2>
