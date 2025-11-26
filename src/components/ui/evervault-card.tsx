@@ -14,7 +14,7 @@ export const ProjectGrid = ({ projects }: { projects: any[] }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
         {projects.map((project, i) => (
           <div
-            className="border border-neutral-300 dark:border-neutral-600 rounded-xl"
+            className="border border-neutral-300 dark:border-neutral-600 rounded-2xl"
             key={i}
           >
             <EvervaultCard key={i} project={project} />
