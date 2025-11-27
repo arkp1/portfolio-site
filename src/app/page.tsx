@@ -15,6 +15,7 @@ import Header from "@/components/Header";
 import { WebSocketProvider } from "@/Utils/WebSocketContext";
 import Player from "@/components/Player";
 import { GitHubCalendar } from "react-github-calendar";
+import { IoDocumentText } from "react-icons/io5";
 
 export default function Page() {
   const { isDark } = useTheme();
@@ -63,6 +64,41 @@ export default function Page() {
             </p>
           </div>
         </motion.div>
+
+        <div className="w-fit gap-4 md:gap-8 flex justify-center items-center text-center mx-auto">
+          <div>
+            <a
+              href="https://drive.google.com/file/d/1EtHJA23D8loedQ3av-trw11L9kJkZ6pK/view?usp=sharing"
+              className={`group inline-flex items-center gap-3 m-5 shadow-[inset_0px_0px_45px_-40px_#000000] border-1 border-white ${
+                isDark ? "bg-gray-900" : "bg-white"
+              } 
+                ${
+                  isDark
+                    ? "hover:bg-black transition-colors duration-600"
+                    : "hover:bg-[#e5e5e5] transition-colors duration-300"
+                }
+                
+              px-3 py-2 text-sm md:text-md font-semibold rounded-lg mx-auto`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IoDocumentText className="group-hover:-rotate-30 transition-transform duration-200" />
+              Resume / CV
+            </a>
+          </div>
+          <p
+            className={`inline-flex items-center gap-3 m-5 shadow-[inset_0px_0px_60px_-40px_#000000] ${
+              isDark ? "bg-white" : "bg-gray-800"
+            } ${isDark ? "text-black" : "text-[#e5e5e5]"} ${
+              isDark
+                ? "hover:bg-[#e5e5e5] transition-colors duration-600"
+                : "hover:bg-black transition-colors duration-600"
+            } px-3 py-2 text-sm md:text-md font-semibold rounded-lg mx-auto`}
+          >
+            <span className="h-2 w-2 bg-green-600 rounded-full animate-pulse"></span>
+            Open to work
+          </p>
+        </div>
 
         {/* skills */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
@@ -142,8 +178,8 @@ export default function Page() {
             />
           </div>
 
-          <div className="flex flex-col justify-center items-center pb-2 md:pl-46 md:pr-46 md:pb-14">
-            <h2 className="text-xl md:text-2xl font-bold text-left mt-4 mb-5">
+          <div className="flex flex-col justify-center items-center pb-2 md:pl-46 md:pr-46">
+            <h2 className="text-xl md:text-2xl font-bold text-left mt-5 mb-5">
               Contact
             </h2>
             <ContactForm />
@@ -151,7 +187,15 @@ export default function Page() {
           {/* <Footer /> */}
           <Toaster />
         </div>
-        {/* </div> */}
+
+        <div className="flex flex-col items-center justify-center text-center py-6 md:py-12 gap-1 md:gap-2">
+          <p className="text-sm md:text-base text-gray-400">
+            Design & Developed by <b className="text-gray-400">Praneet</b>
+          </p>
+          <p className="text-xs md:text-sm text-gray-500">
+            © {new Date().getFullYear()}. All rights reserved.
+          </p>
+        </div>
       </main>
     </>
   );

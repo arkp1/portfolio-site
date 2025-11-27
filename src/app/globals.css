@@ -6,8 +6,8 @@
 }
 
 ::selection {
-  background: rgba(40, 7, 7, 0.8); 
-  color:#EF6262;
+  background: rgba(40, 7, 7, 0.8);
+  color: #ef6262;
 }
 @theme inline {
   --color-background: var(--background);
