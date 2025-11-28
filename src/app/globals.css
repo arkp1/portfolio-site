@@ -37,7 +37,7 @@
 }
 
 html.light {
-  --background: #e5e5e5;
+  --background: white;
   --foreground: #171717;
   --text-color: #171717;
 }

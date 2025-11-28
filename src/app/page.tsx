@@ -193,7 +193,7 @@ export default function Page() {
 
         <div className="flex flex-col items-center justify-center text-center py-6 md:py-12 gap-1 md:gap-2">
           <p className="text-sm md:text-base text-gray-400">
-            Design & Developed by <b className="text-gray-400">Praneet</b>
+            Designed & Developed by <b className="text-gray-400">Praneet</b>
           </p>
           <p className="text-xs md:text-sm text-gray-500">
             © {new Date().getFullYear()}. All rights reserved.
