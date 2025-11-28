@@ -81,7 +81,7 @@ export default function Page() {
                     : "hover:bg-[#e5e5e5] transition-colors duration-300"
                 }
                 
-              px-3 py-2 text-sm md:text-md font-semibold rounded-lg mx-auto`}
+              px-3 py-2 text-sm md:text-md font-normal rounded-lg mx-auto`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -96,7 +96,7 @@ export default function Page() {
               isDark
                 ? "hover:bg-[#e5e5e5] transition-colors duration-600"
                 : "hover:bg-black transition-colors duration-600"
-            } px-3 py-2 text-sm md:text-md font-semibold rounded-lg mx-auto`}
+            } px-3 py-2 text-sm md:text-md font-normal rounded-lg mx-auto`}
           >
             <span className="h-2 w-2 bg-green-600 rounded-full animate-pulse"></span>
             Open to work
