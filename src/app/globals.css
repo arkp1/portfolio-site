@@ -9,11 +9,14 @@
   background: rgba(40, 7, 7, 0.8);
   color: #ef6262;
 }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-heading: "Instrument Serif";
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-instrument-serif: var(--font-instrument-serif);
 
   --animate-aurora: aurora 60s linear infinite;
   @keyframes aurora {
@@ -39,7 +42,7 @@ html.light {
   --text-color: #171717;
 }
 html.dark {
-  --background: #191a1c;
+  --background: black;
   --foreground: #ededed;
   --text-color: #e5e5e5;
 }
@@ -49,4 +52,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-

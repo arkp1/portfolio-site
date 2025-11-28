@@ -40,11 +40,14 @@ export default function Page() {
       </WebSocketProvider>
       <BackgroundBeams className="pointer-events-none" />
       <main className="flex flex-col items-center justify-center pt-12 md:p-5 md:pt-20 min-h-screen">
-        <TextGenerateEffect
-          words="
-          <Hello, I'm Praneet!/>"
-          className={`${isDark ? "text-white" : "text-black"}`}
-        />
+        <div className="flex gap-2 items-baseline">
+          <TextGenerateEffect words="<Hello, I'm" />
+          <TextGenerateEffect
+            words="Praneet."
+            className="font-heading italic"
+          />
+          <TextGenerateEffect words="/>" />
+        </div>
 
         {/* intro */}
         <motion.div
@@ -102,7 +105,7 @@ export default function Page() {
 
         {/* skills */}
         <div className={` ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
-          <h2 className="text-xl md:text-2xl font-bold text-left mt-4 ml-2 mb-1">
+          <h2 className="text-2xl md:text-3xl font-heading text-left mt-4 ml-2 mb-1">
             Skills
           </h2>
           <div className="grid grid-cols-4 gap-4 md:grid-cols-4 lg:grid-cols-5">
@@ -169,7 +172,7 @@ export default function Page() {
           </div>
 
           <div className="flex flex-col w-85 max-w-screen md:w-min justify-center items-center m-4 bg-transparent overflow-hidden mx-auto md:scale-100 md:flex">
-            <h2 className="text-xl md:text2xl font-bold text-left m-5">
+            <h2 className="text-2xl md:text-3xl font-heading text-left m-5">
               Github Activity
             </h2>
             <GitHubCalendar
@@ -179,7 +182,7 @@ export default function Page() {
           </div>
 
           <div className="flex flex-col justify-center items-center pb-2 md:pl-46 md:pr-46">
-            <h2 className="text-xl md:text-2xl font-bold text-left mt-5 mb-5">
+            <h2 className="text-2xl md:text-3xl font-heading text-left mt-5 mb-5">
               Contact
             </h2>
             <ContactForm />

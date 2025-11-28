@@ -1,4 +1,4 @@
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
@@ -11,6 +11,13 @@ const space_grotesk = Space_Grotesk({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
+export const instrument_serif = Instrument_Serif(
+  {
+    subsets: ["latin"],
+    weight: ["400", "400"],
+  }
+);
 
 export const metadata: Metadata = {
   title: "Praneet's Portfolio",
