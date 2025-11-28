@@ -16,6 +16,7 @@ import { WebSocketProvider } from "@/Utils/WebSocketContext";
 import Player from "@/components/Player";
 import { GitHubCalendar } from "react-github-calendar";
 import { IoDocumentText } from "react-icons/io5";
+import { BsArrowRight } from "react-icons/bs";
 
 export default function Page() {
   const { isDark } = useTheme();
@@ -142,17 +143,17 @@ export default function Page() {
           <div className="flex justify-center text-lg text-white dark:text-black mt-8">
             <Modal>
               <ModalTrigger
-                className={`${
-                  isDark ? "bg-[#e5e5e5]" : "bg-[#e5e5e5]"
+                className={`${isDark ? "bg-white" : "bg-black"} ${
+                  isDark ? "text-black" : "text-white"
                 }  hover:opacity-60 flex justify-center group/modal-btn cursor-pointer`}
               >
                 <a
-                  className={`group-hover/modal-btn:translate-x-40 text-center transition duration-500`}
+                  className={`group-hover/modal-btn:translate-x-40 text-center text-sm md:text-lg transition duration-500`}
                   href="https://github.com/arkp1?tab=repositories&type=source"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  More
+                  Show More
                 </a>
                 <a
                   className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 z-20 cursor-pointer"
@@ -160,12 +161,7 @@ export default function Page() {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <img
-                    src="icons/arrow-right.svg"
-                    alt="arrow"
-                    className="h-6 w-6 text-black"
-                    loading="lazy"
-                  />
+                  <BsArrowRight />
                 </a>
               </ModalTrigger>
             </Modal>
