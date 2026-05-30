@@ -7,6 +7,14 @@ type Project = {
 };
 
 const MyProjects: Project[] = [
+    {
+    name: "RevPlay - Music Player",
+    description:
+      "A full-stack music streaming web application built with Spring Boot, Thymeleaf, and MySQL - supporting songs, albums, podcasts, playlists, and artist analytics in a unified platform.",
+    url: "https://github.com/arkp1/RevPlay-P2",
+    stack: ["java, Spring Boot, MySQL"],
+    image: "/images/Revplay_home_page.png",
+  },
   {
     name: "Recomposer - Cache-Based Recommendation System",
     description:
@@ -28,14 +36,6 @@ const MyProjects: Project[] = [
     url: "https://compressit-puce.vercel.app/",
     stack: ["Typescript", "Python", "Next.js", "Tailwind CSS"],
     image: "/images/compressit.png",
-  },
-  {
-    name: "Movie Time",
-    description:
-      "A full stack movie application with auth, sync, watchlist support and more.",
-    url: "https://movie-time-zfid.onrender.com/",
-    stack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    image: "/images/movietime.png",
   },
 ];
 
