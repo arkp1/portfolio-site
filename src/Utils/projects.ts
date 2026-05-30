@@ -12,7 +12,7 @@ const MyProjects: Project[] = [
     description:
       "A full-stack music streaming web application built with Spring Boot, Thymeleaf, and MySQL - supporting songs, albums, podcasts, playlists, and artist analytics in a unified platform.",
     url: "https://github.com/arkp1/RevPlay-P2",
-    stack: ["Java, Spring Boot, MySQL"],
+    stack: ["Java, Spring Boot, Hibernate, MySQL"],
     image: "/images/Revplay_home_page.png",
   },
   {
